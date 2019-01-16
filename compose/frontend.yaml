@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   frontend:
-    image: "rubykube/mikroapp:0.1.5"
+    image: "cryptobase:v2-local"
     volumes:
       - ../config/frontend/env.js:/home/node/public/env.js
     labels:
