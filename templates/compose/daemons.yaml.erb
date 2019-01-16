@@ -18,62 +18,91 @@ services:
   withdraw_audit:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/withdraw_audit.rb"
-
+    env_file:
+      - ../config/peatio.env
   blockchain:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/blockchain.rb"
+    env_file:
+      - ../config/peatio.env
 
   global_state:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/global_state.rb"
+    env_file:
+      - ../config/peatio.env
 
   deposit_collection:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb deposit_collection"
+    env_file:
+      - ../config/peatio.env
 
   deposit_collection_fees:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb deposit_collection_fees"
+    env_file:
+      - ../config/peatio.env
 
   deposit_coin_address:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb deposit_coin_address"
+    env_file:
+      - ../config/peatio.env
 
   slave_book:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb slave_book"
+    env_file:
+      - ../config/peatio.env
 
   market_ticker:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb market_ticker"
+    env_file:
+      - ../config/peatio.env
 
   matching:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb matching"
+    env_file:
+      - ../config/peatio.env
 
   order_processor:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb order_processor"
+    env_file:
+      - ../config/peatio.env
 
   trade_executor:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb trade_executor"
+    env_file:
+      - ../config/peatio.env
 
   withdraw_coin:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb withdraw_coin"
+    env_file:
+      - ../config/peatio.env
 
   pusher_market:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb pusher_market"
+    env_file:
+      - ../config/peatio.env
 
   pusher_member:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/amqp_daemon.rb pusher_member"
+    env_file:
+      - ../config/peatio.env
 
   k:
     << : *peatio-daemon
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/k.rb"
+    env_file:
+      - ../config/peatio.env
 
   ranger:
     image: "<%= @config['images']['peatio'] %>"
