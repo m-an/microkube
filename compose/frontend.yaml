@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   frontend:
-    image: "cryptobase:v2-local"
+    image: cryptobase:v2-local
     volumes:
       - ../config/frontend/env.js:/home/node/public/env.js
     labels:
