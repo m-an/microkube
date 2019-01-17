@@ -7,3 +7,6 @@ services:
       traefik.enable: true
       traefik.frontend.rule: 'Host: mail.app.local'
       traefik.port: 1080
+  toolbox:
+    image: toolbox:events_debug_0.18
+    env_file: ../config/barong.env

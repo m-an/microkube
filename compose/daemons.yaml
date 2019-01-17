@@ -1,7 +1,7 @@
 version: '3.6'
 
 x-daemon: &peatio-daemon
-  image: "rubykube/peatio:2.0.12-alpha"
+  image: "rubykube/peatio:2.0.14-alpha"
   restart: always
   depends_on:
     - peatio
@@ -76,7 +76,7 @@ services:
     command: bash -c "bin/link_config && bundle exec ruby lib/daemons/k.rb"
 
   ranger:
-    image: "rubykube/peatio:2.0.12-alpha"
+    image: "rubykube/peatio:2.0.14-alpha"
     depends_on:
       - rabbitmq
     env_file:
