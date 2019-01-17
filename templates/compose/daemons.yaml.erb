@@ -81,8 +81,12 @@ services:
       - rabbitmq
     env_file:
       - ../config/ranger.env
+    volumes:
+      - ../config/peatio:/opt/peatio/config:ro
+      - ../config/peatio/Gemfile:/home/app/Gemfile
+      - ../vendor/peatio-core:/opt/peatio-core
     labels:
       traefik.enable: true
       traefik.frontend.rule: 'Host: ranger.<%= @config['app']['domain'] %>'
       traefik.port: 8080
-    command: bash -c "bundle exec peatio service start ranger"
+    command: bash -c "bundle install && bundle exec peatio service start ranger"
